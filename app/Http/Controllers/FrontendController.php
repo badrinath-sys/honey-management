@@ -2,6 +2,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\ContactEnquiry;
 use App\Models\Gallery;
 use App\Models\Product;
 use Illuminate\Http\Request;
@@ -121,8 +122,6 @@ class FrontendController extends Controller
 
         return view('frontend.gallery', compact('galleries'));
     }
-    use App\Models\ContactEnquiry;
-    use Illuminate\Http\Request;
 
     public function about()
     {
@@ -148,4 +147,13 @@ class FrontendController extends Controller
 
         return back()->with('success', 'Thank you! We will contact you soon.');
     }
+    public function product($slug)
+    {
+        $product = Product::where('slug', $slug)
+            ->where('status', 1)
+            ->firstOrFail();
+
+        return view('frontend.product-details', compact('product'));
+    }
+
 }

@@ -1,9 +1,22 @@
-<nav class="navbar navbar-expand-lg bg-white sticky-top shadow-sm">
+<nav class="navbar navbar-expand-lg bg-white sticky-top shadow-sm py-3">
     <div class="container-fluid">
 
-        <a class="navbar-brand fw-bold" href="{{ route('home') }}">
-            <img src="{{ asset('assets/images/logo.png') }}" height="45" alt="">
-            Nature's Gold<br> Honey
+        <a class="navbar-brand d-flex align-items-center" href="{{ route('home') }}">
+
+            <img src="{{ asset('assets/images/hero.png') }}" height="55" class="me-2">
+
+            <div>
+
+                <h5 class="mb-0 fw-bold text-dark">
+                    Nature's Gold
+                </h5>
+
+                <small class="text-warning fw-semibold">
+                    Pure Natural Honey
+                </small>
+
+            </div>
+
         </a>
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainMenu">
@@ -12,15 +25,15 @@
 
         <div class="collapse navbar-collapse" id="mainMenu">
 
-            <ul class="navbar-nav mx-auto">
-
+            <ul class="navbar-nav mx-auto gap-2">
                 <li class="nav-item">
                     <a class="nav-link active" href="/">Home</a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('shop') }}">Shop</a>
-
+                    <a class="nav-link {{ request()->routeIs('shop') ? 'active' : '' }}" href="{{ route('shop') }}">
+                        Shop
+                    </a>
                 </li>
 
                 <li class="nav-item dropdown">
@@ -53,18 +66,22 @@
 
                     <a class="nav-link" href="{{ route('offers') }}">
 
-                        🔥 Offers
+                        Offers
 
                     </a>
 
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="#">About</a>
+                    <a class="nav-link {{ request()->routeIs('about') ? 'active' : '' }}" href="{{ route('about') }}">
+                        About
+                    </a>
                 </li>
-
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Contact</a>
+                    <a class="nav-link {{ request()->routeIs('contact') ? 'active' : '' }}"
+                        href="{{ route('contact') }}">
+                        Contact
+                    </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('gallery') }}">
@@ -80,14 +97,15 @@
                     <input type="text" name="search" class="form-control border-warning rounded-start-pill"
                         placeholder="Search Products..." value="{{ request('search') }}">
 
-                    <button class="btn btn-warning rounded-end-pill px-4">
+                    <button class="btn btn-warning rounded-end-pill px-4", style="height:38px;">
                         <i class="fa fa-search"></i>
                     </button>
 
                 </div>
 
             </form>
-            <a href="{{ route('cart') }}" class="btn btn-warning position-relative me-3 rounded-pill">
+            <a href="{{ route('cart') }}" class="btn btn-warning position-relative me-3 rounded-pill"
+                style=" height:38px;">
 
                 <i class="fa-solid fa-cart-shopping"></i>
 
@@ -97,7 +115,8 @@
 
             </a>
             @if (Auth::guard('customer')->check())
-                <a href="{{ route('wishlist.index') }}" class="btn btn-outline-danger position-relative rounded-pill">
+                <a href="{{ route('wishlist.index') }}" class="btn btn-outline-danger position-relative rounded-pill"
+                    style=" height:38px;">
 
                     <i class="fa fa-heart"></i>
 
@@ -112,11 +131,14 @@
         @if (Auth::guard('customer')->check())
             <div class="dropdown ms-3">
 
-                <button class="btn btn-outline-dark dropdown-toggle rounded-pill" data-bs-toggle="dropdown">
+                <button class="btn btn-outline-dark dropdown-toggle rounded-pill d-flex align-items-center"
+                    data-bs-toggle="dropdown" style="width: 100px; height:40px; padding:0 15px;">
 
-                    <i class="fa fa-user-circle"></i>
+                    <i class="fa fa-user-circle me-2"></i>
 
-                    {{ Auth::guard('customer')->user()->name }}
+                    <span class="text-truncate">
+                        {{ Auth::guard('customer')->user()->name }}
+                    </span>
 
                 </button>
 

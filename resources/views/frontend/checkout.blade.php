@@ -254,6 +254,52 @@
                                     </h4>
 
                                 </div>
+                                <div class="card shadow mt-4">
+
+                                    <div class="card-header bg-dark text-white">
+
+                                        <h5 class="mb-0">
+
+                                            Payment Method
+
+                                        </h5>
+
+                                    </div>
+
+                                    <div class="card-body">
+
+                                        <div class="form-check mb-3">
+
+                                            <input class="form-check-input" type="radio" name="payment_method"
+                                                value="COD" checked>
+
+                                            <label class="form-check-label">
+
+                                                💵 Cash on Delivery
+
+                                            </label>
+
+                                        </div>
+
+                                        <div class="form-check">
+
+                                            <input class="form-check-input" type="radio" name="payment_method"
+                                                value="Online">
+
+                                            <label class="form-check-label">
+
+                                                💳 Pay Online
+                                                <span class="badge bg-warning text-dark">
+                                                    Coming Soon
+                                                </span>
+
+                                            </label>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
 
                                 <div class="d-grid mt-4">
 

@@ -9,7 +9,7 @@ class AdminMiddleware
 {
     public function handle(Request $request, Closure $next): Response
     {
-        if (! auth()->check()) {
+        if (! auth(user)->check()) {
             return redirect()->route('login');
         }
 

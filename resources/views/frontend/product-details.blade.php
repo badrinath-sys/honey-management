@@ -52,7 +52,7 @@
 
                     @csrf
 
-                    <button type="submit" class="btn btn-warning w-100">
+                    <button type="submit" class="btn btn-warning w-10">
 
                         <i class="fas fa-shopping-cart"></i>
 
@@ -60,7 +60,7 @@
 
                     </button>
 
-                </form>
+                </form><br>
 
                 <button class="btn btn-success btn-lg">
 
@@ -69,52 +69,6 @@
                 </button>
 
             </div>
-
-        </div>
-
-    </div>
-
-    <!-- Related Products -->
-
-    <div class="container pb-5">
-
-        <h3 class="fw-bold mb-4">
-
-            Related Products
-
-        </h3>
-
-        <div class="row">
-
-            @foreach ($relatedProducts as $item)
-                <div class="col-md-3 mb-4">
-
-                    <div class="card h-100 shadow-sm border-0">
-
-                        <img src="{{ asset('assets/images/products/' . $product->image) }}" class="card-img-top p-3"
-                            style="height:220px;object-fit:contain;" alt="{{ $product->name }}">
-                        <div class="card-body">
-
-                            <h5>{{ $item->name }}</h5>
-
-                            <h5 class="text-warning">
-
-                                ₹{{ $item->price }}
-
-                            </h5>
-
-                            <a href="{{ route('product.show', $item->id) }}" class="btn btn-outline-warning w-100">
-
-                                View
-
-                            </a>
-
-                        </div>
-
-                    </div>
-
-                </div>
-            @endforeach
 
         </div>
 

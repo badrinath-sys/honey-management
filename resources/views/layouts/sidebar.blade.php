@@ -158,12 +158,6 @@
                 </a>
 
             </li>
-            <li class="nav-item">
-                <a href="{{ route('website.settings.edit') }}" class="nav-link">
-                    <i class="fas fa-globe"></i>
-                    Website Settings
-                </a>
-            </li>
         @endif
 
     </ul>

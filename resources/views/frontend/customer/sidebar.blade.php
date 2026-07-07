@@ -29,23 +29,6 @@
 
     </a>
 
-    <a href="{{ route('customer.password') }}"
-        class="list-group-item list-group-item-action {{ request()->routeIs('customer.password*') ? 'active' : '' }}">
-
-        <i class="fa fa-lock me-2"></i>
-
-        Change Password
-
-    </a>
-    <a href="{{ route('customer.orders') }}"
-        class="list-group-item list-group-item-action {{ request()->routeIs('customer.orders*') ? 'active' : '' }}">
-
-        <i class="fa fa-box me-2"></i>
-
-        My Orders
-
-    </a>
-
     <a href="{{ route('customer.addresses') }}" class="list-group-item list-group-item-action">
 
         <i class="fa fa-location-dot me-2"></i>

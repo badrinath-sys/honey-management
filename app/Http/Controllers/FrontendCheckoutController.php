@@ -13,9 +13,15 @@ class FrontendCheckoutController extends Controller
     {
 
         $request->validate([
-            'customer_name' => 'required|max:100',
-            'phone'         => 'required|max:20',
-            'address'       => 'required',
+
+            'customer_name'  => 'required|max:100',
+
+            'phone'          => 'required|max:20',
+
+            'address'        => 'required',
+
+            'payment_method' => 'required',
+
         ]);
 
         // Customer must be logged in
@@ -43,7 +49,6 @@ class FrontendCheckoutController extends Controller
             $customer->update([
                 'name'    => $request->customer_name,
                 'phone'   => $request->phone,
-                'email'   => $request->email,
                 'address' => $request->address,
                 'city'    => $request->city,
                 'state'   => $request->state,
@@ -60,11 +65,19 @@ class FrontendCheckoutController extends Controller
             // Create Order
             // Create Order
             $order = Order::create([
+
                 'customer_id'    => $customer->id,
+
                 'order_date'     => now(),
+
                 'total_amount'   => $grandTotal,
+
+                'payment_method' => $request->payment_method,
+
                 'payment_status' => 'Pending',
+
                 'order_status'   => 'Pending',
+
             ]);
 
 // Save Items & Update Stock

@@ -2,64 +2,134 @@
 
 @section('content')
     <!-- Hero Section -->
-
-    <section class="bg-warning-subtle py-5">
-
+    <section class="hero-section">
         <div class="container">
 
             <div class="row align-items-center">
 
+                <!-- Left Content -->
                 <div class="col-lg-6">
 
-                    <span class="badge bg-success mb-3">
-
-                        🌿 100% Natural Honey
-
+                    <span class="badge bg-warning text-dark px-3 py-2 mb-3">
+                        🍯 100% Pure Natural Honey
                     </span>
 
-                    <h1 class="display-4 fw-bold">
-
-                        Pure Natural Honey
-
+                    <h1 class="hero-title mt-3">
+                        Taste Nature's
+                        <span class="text-warning">Pure Honey</span>
                     </h1>
 
-                    <h2 class="text-warning fw-bold">
+                    <p class="hero-text mt-4">
+                        Welcome to <strong>Nature's Gold Honey</strong>.
+                        Our store is located in <strong>Hastinapur, Hyderabad</strong>.
 
-                        From Nallamala Forest
-
-                    </h2>
-
-                    <p class="lead mt-4">
-
-                        Experience the taste of pure, raw and natural honey
-                        collected directly from the forests.
-
-                        No Sugar
-
-                        No Chemicals
-
-                        No Preservatives
-
+                        We, <strong>Badrinath</strong> and <strong>Santhosh</strong>,
+                        personally maintain our bee colonies and harvest
+                        fresh natural honey using ethical beekeeping practices.
                     </p>
 
-                    <a href="{{ route('shop') }}" class="btn btn-warning btn-lg me-3">
+                    <div class="mt-4">
 
-                        Shop Now
+                        <a href="{{ route('shop') }}" class="btn btn-warning btn-lg rounded-pill px-4 me-2">
+                            Shop Now
+                        </a>
 
-                    </a>
+                        <a href="{{ route('about') }}" class="btn btn-outline-dark btn-lg rounded-pill px-4">
+                            Our Story
+                        </a>
 
-                    <a href="#featured" class="btn btn-outline-dark btn-lg">
-
-                        Explore
-
-                    </a>
+                    </div>
 
                 </div>
 
+                <!-- Right Image -->
                 <div class="col-lg-6 text-center">
 
-                    <img src="{{ asset('assets/images/hero.png') }}" class="img-fluid">
+                    <img src="{{ asset('assets/images/hero.png') }}" class="img-fluid hero-img" alt="Nature's Gold Honey">
 
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!---hero 2 section--->
+    <section class="py-5" style="background: #fffdf5;">
+        <div class="container">
+
+            <div class="text-center mb-5">
+
+                <h2 class="fw-bold">
+                    Why Choose Nature's Gold Honey?
+                </h2>
+
+                <p class="text-muted">
+                    Pure. Natural. Trusted.
+                </p>
+
+            </div>
+
+            <div class="row g-4">
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-card text-center p-4 h-100">
+                        <div class="feature-icon">🍯</div>
+                        <h5 class="fw-bold mt-3">100% Pure Honey</h5>
+                        <p class="text-muted">
+                            Naturally harvested honey with no added sugar or preservatives.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-card text-center p-4 h-100">
+                        <div class="feature-icon">🐝</div>
+                        <h5 class="fw-bold mt-3">Own Bee Farms</h5>
+                        <p class="text-muted">
+                            We personally maintain healthy bee colonies and harvest fresh honey.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-card text-center p-4 h-100">
+                        <div class="feature-icon">🌿</div>
+                        <h5 class="fw-bold mt-3">Chemical Free</h5>
+                        <p class="text-muted">
+                            No artificial colors, chemicals, or preservatives.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-card text-center p-4 h-100">
+                        <div class="feature-icon">🧴</div>
+                        <h5 class="fw-bold mt-3">Hygienic Packing</h5>
+                        <p class="text-muted">
+                            Packed carefully to preserve freshness and quality.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-card text-center p-4 h-100">
+                        <div class="feature-icon">🚚</div>
+                        <h5 class="fw-bold mt-3">Fast Delivery</h5>
+                        <p class="text-muted">
+                            Quick and secure delivery across Hyderabad and nearby areas.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-card text-center p-4 h-100">
+                        <div class="feature-icon">❤️</div>
+                        <h5 class="fw-bold mt-3">Trusted Quality</h5>
+                        <p class="text-muted">
+                            Every jar reflects our commitment to quality and customer satisfaction.
+                        </p>
+                    </div>
                 </div>
 
             </div>
@@ -249,6 +319,7 @@
         </div>
 
     </section>
+
     <!-- Best Seller Products -->
 
     <section class="py-5">
@@ -464,6 +535,113 @@
         </div>
 
     </section>
+
+    <!-- our story -->
+    <section class="story-section py-5 bg-white">
+
+        <div class="container">
+
+            <div class="row align-items-center">
+
+                <div class="col-lg-6">
+
+                    <img src="{{ asset('assets/images/story1.png') }}" class="img-fluid rounded-4 shadow"
+                        alt="Our Story">
+
+                </div>
+
+                <div class="col-lg-6">
+
+                    <span class="badge bg-warning text-dark mb-3">
+                        Our Story
+                    </span>
+
+                    <h2 class="fw-bold mb-4">
+                        Bringing Pure Honey From Our Bee Farms
+                    </h2>
+
+                    <p class="text-muted">
+
+                        Welcome to <strong>Nature's Gold Honey</strong>.
+
+                        Our store is located in <strong>Hastinapur, Hyderabad</strong>.
+
+                    </p>
+
+                    <p class="text-muted">
+
+                        We, <strong>Badrinath</strong> and <strong>Santhosh</strong>,
+                        personally maintain our bee colonies and harvest fresh,
+                        natural honey using ethical and sustainable beekeeping
+                        practices.
+
+                    </p>
+
+                    <p class="text-muted">
+
+                        Every bottle is carefully collected, filtered, and packed
+                        to preserve its natural taste and nutrients.
+
+                    </p>
+
+                    <a href="{{ route('about') }}" class="btn btn-warning rounded-pill px-4 mt-3">
+
+                        Read More
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="stats-section py-5">
+
+        <div class="container">
+
+            <div class="row text-center">
+
+                <div class="col-lg-3 col-6 mb-4">
+
+                    <h2>500+</h2>
+
+                    <p>Bee Colonies</p>
+
+                </div>
+
+                <div class="col-lg-3 col-6 mb-4">
+
+                    <h2>1500+</h2>
+
+                    <p>Happy Customers</p>
+
+                </div>
+
+                <div class="col-lg-3 col-6 mb-4">
+
+                    <h2>5000+</h2>
+
+                    <p>Orders Delivered</p>
+
+                </div>
+
+                <div class="col-lg-3 col-6 mb-4">
+
+                    <h2>100%</h2>
+
+                    <p>Pure Natural Honey</p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
     <!-- Customer Reviews -->
 
     <section class="py-5">
@@ -603,109 +781,6 @@
         </div>
 
     </section>
-
-    <!-- Footer -->
-
-    <footer class="bg-dark text-white pt-5 pb-3">
-
-        <div class="container">
-
-            <div class="row">
-
-                <div class="col-lg-4">
-
-                    <h4 class="text-warning">
-
-                        Nature's Gold Honey
-
-                    </h4>
-
-                    <p>
-
-                        Premium quality natural honey collected from
-                        the forests of Nallamala.
-
-                    </p>
-
-                </div>
-
-                <div class="col-lg-2">
-
-                    <h5>Quick Links</h5>
-
-                    <ul class="list-unstyled">
-
-                        <li><a href="/" class="text-white text-decoration-none">Home</a></li>
-
-                        <li><a href="{{ route('shop') }}" class="text-white text-decoration-none">Shop</a></li>
-
-                        <li><a href="#" class="text-white text-decoration-none">About</a></li>
-
-                        <li><a href="#" class="text-white text-decoration-none">Contact</a></li>
-
-                    </ul>
-
-                </div>
-
-                <div class="col-lg-3">
-
-                    <h5>Contact</h5>
-
-                    <p>
-
-                        📍 Telangana, India
-
-                    </p>
-
-                    <p>
-
-                        📞 +91 XXXXX XXXXX
-
-                    </p>
-
-                    <p>
-
-                        ✉ info@naturesgoldhoney.com
-
-                    </p>
-
-                </div>
-
-                <div class="col-lg-3">
-
-                    <h5>Follow Us</h5>
-
-                    <a href="#" class="btn btn-outline-light btn-sm me-2">
-
-                        Facebook
-
-                    </a>
-
-                    <a href="#" class="btn btn-outline-light btn-sm me-2">
-
-                        Instagram
-
-                    </a>
-
-                    <a href="#" class="btn btn-outline-light btn-sm">
-
-                        YouTube
-
-                    </a>
-
-                </div>
-
-            </div>
-
-            <hr>
-
-            <div class="text-center">
-
-                © {{ date('Y') }} Nature's Gold Honey. All Rights Reserved.
-
-            </div>
-
-        </div>
-
-    </footer>
 @endsection
+
+<!-- Footer -->

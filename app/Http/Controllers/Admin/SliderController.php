@@ -1,65 +1,57 @@
 <?php
-
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Slider;
 use Illuminate\Http\Request;
 
 class SliderController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        //
+        $sliders = Slider::orderBy('display_order')
+            ->latest()
+            ->paginate(10);
+
+        return view('admin.sliders.index', compact('sliders'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
-        //
+        return view('admin.sliders.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
-        //
-    }
+        $request->validate([
+            'title' => 'required|max:255',
+            'image' => 'required|image|mimes:jpg,jpeg,png,webp|max:2048',
+        ]);
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
+        $imageName = null;
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
+        if ($request->hasFile('image')) {
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
+            $imageName = time() . '.' . $request->image->extension();
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
+            $request->image->move(
+                public_path('uploads/sliders'),
+                $imageName
+            );
+        }
+
+        Slider::create([
+            'title'         => $request->title,
+            'subtitle'      => $request->subtitle,
+            'image'         => $imageName,
+            'button_text'   => $request->button_text,
+            'button_link'   => $request->button_link,
+            'display_order' => $request->display_order ?? 1,
+            'status'        => $request->status ?? 1,
+        ]);
+
+        return redirect()
+            ->route('admin.sliders.index')
+            ->with('success', 'Slider Added Successfully.');
     }
 }

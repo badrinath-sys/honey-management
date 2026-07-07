@@ -1,7 +1,6 @@
 <?php
 
 use App\Http\Controllers\ActivityLogController;
-use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CustomerAuthController;
@@ -23,6 +22,7 @@ use App\Http\Controllers\StockController;
 use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\WishlistController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -336,11 +336,19 @@ Route::middleware('auth:customer')->group(function () {
         [CustomerAuthController::class, 'dashboard'])
         ->name('customer.dashboard');
 
-    Route::post('/customer/logout',
-        [CustomerAuthController::class, 'logout'])
-        ->name('customer.logout');
+    Route::post('/customer/auto-logout', function () {
+
+        Auth::guard('customer')->logout();
+
+        session()->invalidate();
+        session()->regenerateToken();
+
+        return redirect()->route('customer.login');
+
+    })->name('customer.logout');
 
 });
+
 Route::middleware('auth:customer')->group(function () {
 
     Route::get('/wishlist',
@@ -400,14 +408,20 @@ Route::post('/contact', [FrontendController::class, 'contactStore'])->name('cont
 
 /*Websiste settings*/
 
-Route::middleware(['auth'])
-    ->prefix('admin')
-    ->name('admin.')
-    ->group(function () {
+//Route::middleware(['auth'])
+//  ->prefix('admin')
+// ->name('admin.')
+// ->group(function () {
 
-        Route::resource('sliders', SliderController::class);
+//  Route::resource('sliders', SliderController::class);
 
-    });
+// });
+
+Route::get('/about', [FrontendController::class, 'about'])
+    ->name('about');
+
+Route::get('/contact', [FrontendController::class, 'contact'])
+    ->name('contact');
 
 /*
 |--------------------------------------------------------------------------
