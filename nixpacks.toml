@@ -1,2 +1,14 @@
 [phases.setup]
 nixPkgs = ["php", "phpExtensions.gd", "phpExtensions.zip", "phpExtensions.mbstring", "phpExtensions.bcmath", "phpExtensions.pdo_mysql"]
+
+
+[phases.setup]
+nixPkgs = [
+  "php82",
+  "php82Extensions.gd",
+  "php82Extensions.zip",
+  "php82Extensions.mbstring",
+  "php82Extensions.bcmath",
+  "php82Extensions.pdo_mysql",
+  "libzip"
+]
